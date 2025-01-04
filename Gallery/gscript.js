@@ -20,7 +20,7 @@ function showImage(index) {
     if (images[index]) {
         viewerImage.src = images[index];
         currentIndex = index;
-        document.querySelector('.image-viewer').style.display = 'flex';
+        document.querySelector('.image-viewer').classList.add('show');
     } else {
         console.error("Image at index " + index + " not found.");
     }
@@ -28,7 +28,7 @@ function showImage(index) {
 
 // Close the image viewer
 closeViewer.addEventListener('click', () => {
-    document.querySelector('.image-viewer').style.display = 'none';
+    document.querySelector('.image-viewer').classList.remove('show');
 });
 
 // Show previous image
