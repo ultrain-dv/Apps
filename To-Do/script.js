@@ -14,10 +14,20 @@ function createNewList() {
 
     if (listName && listName.trim()) {
         const taskLists = getTaskListsFromLocalStorage();
-        taskLists.push({ name: listName, tasks: [] });
+
+        // Check if the list already exists
+        if (taskLists.some(list => list.name === listName.trim())) {
+            alert("A list with this name already exists.");
+            return;
+        }
+
+        taskLists.push({ name: listName.trim(), tasks: [] });
         localStorage.setItem('taskLists', JSON.stringify(taskLists));
 
-        loadTaskLists(); // Reload the list selector
+        // Reload the list selector with the new list
+        loadTaskLists();
+    } else {
+        alert("Please enter a valid name for the list.");
     }
 }
 
