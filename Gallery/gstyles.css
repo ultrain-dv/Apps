@@ -9,47 +9,27 @@ body {
     height: 100vh;
 }
 
-.gallery-container {
-    width: 80%;
-    margin: 20px;
-}
-
-.image-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
-}
-
-.image-grid img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.image-grid img:hover {
-    transform: scale(1.1);
-}
-
-/* Image viewer */
 .image-viewer {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.8);
-    display: none;
+    position: relative;
+    display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 80%;
+    height: 80%;
 }
 
 #viewerImage {
-    max-width: 80%;
-    max-height: 80%;
+    max-width: 100%;
+    max-height: 100%;
     margin-bottom: 20px;
+}
+
+#imageInput {
+    position: absolute;
+    top: 10px;
+    right: 10px;
 }
 
 .close {

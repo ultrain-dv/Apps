@@ -1,59 +1,40 @@
-const imageGrid = document.querySelector('.image-grid');
-const imageViewer = document.getElementById('imageViewer');
+const imageInput = document.getElementById('imageInput');
 const viewerImage = document.getElementById('viewerImage');
 const closeViewer = document.getElementById('closeViewer');
 const prevButton = document.getElementById('prevButton');
 const nextButton = document.getElementById('nextButton');
 
-let images = [
-    'https://via.placeholder.com/500x300?text=Image+1',
-    'https://via.placeholder.com/500x300?text=Image+2',
-    'https://via.placeholder.com/500x300?text=Image+3',
-    'https://via.placeholder.com/500x300?text=Image+4'
-];
-
+let images = [];
 let currentIndex = 0;
 
-// Function to open image viewer
-function openViewer(index) {
+// Handle image selection
+imageInput.addEventListener('change', (event) => {
+    images = Array.from(event.target.files).map(file => URL.createObjectURL(file));
+    if (images.length > 0) {
+        showImage(0);
+    }
+});
+
+// Show the selected image in the viewer
+function showImage(index) {
     viewerImage.src = images[index];
-    imageViewer.style.display = 'flex';
     currentIndex = index;
+    document.querySelector('.image-viewer').style.display = 'flex';
 }
 
-// Function to close image viewer
-function closeViewerFunction() {
-    imageViewer.style.display = 'none';
-}
+// Close the image viewer
+closeViewer.addEventListener('click', () => {
+    document.querySelector('.image-viewer').style.display = 'none';
+});
 
-// Function to show previous image
-function prevImage() {
+// Show previous image
+prevButton.addEventListener('click', () => {
     currentIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
-    viewerImage.src = images[currentIndex];
-}
+    showImage(currentIndex);
+});
 
-// Function to show next image
-function nextImage() {
+// Show next image
+nextButton.addEventListener('click', () => {
     currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
-    viewerImage.src = images[currentIndex];
-}
-
-// Render images in the grid
-function renderImages() {
-    imageGrid.innerHTML = '';
-    images.forEach((src, index) => {
-        const img = document.createElement('img');
-        img.src = src;
-        img.alt = `Image ${index + 1}`;
-        img.addEventListener('click', () => openViewer(index));
-        imageGrid.appendChild(img);
-    });
-}
-
-// Event listeners for navigation
-closeViewer.addEventListener('click', closeViewerFunction);
-prevButton.addEventListener('click', prevImage);
-nextButton.addEventListener('click', nextImage);
-
-// Initialize the gallery
-renderImages();
+    showImage(currentIndex);
+});
