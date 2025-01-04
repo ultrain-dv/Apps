@@ -8,11 +8,21 @@
 </head>
 <body>
     <div class="app-container">
-        <h1>To-Do List</h1>
+        <h1>To-Do Lists</h1>
+        
+        <!-- List Selector -->
+        <div class="list-selector">
+            <select id="listSelector">
+                <option value="">-- Select a List --</option>
+            </select>
+            <button id="createNewListButton">Create New List</button>
+        </div>
+        
         <div class="input-container">
             <input type="text" id="taskInput" placeholder="Enter a new task">
             <button id="addTaskButton">Add Task</button>
         </div>
+        
         <ul id="taskList"></ul>
     </div>
 
