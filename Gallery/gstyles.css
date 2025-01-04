@@ -21,6 +21,13 @@ body {
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.image-viewer.show {
+    display: flex;
+    opacity: 1;
 }
 
 #viewerImage {
@@ -37,6 +44,15 @@ body {
     border-radius: 4px;
     cursor: pointer;
     display: block;
+    background-color: #fff;
+    color: #007bff;
+    font-size: 16px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#imageInput:hover {
+    background-color: #007bff;
+    color: #fff;
 }
 
 .close {
@@ -46,6 +62,11 @@ body {
     font-size: 30px;
     color: white;
     cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: #ff0000;
 }
 
 .nav-button {
