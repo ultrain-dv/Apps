@@ -17,9 +17,13 @@ imageInput.addEventListener('change', (event) => {
 
 // Show the selected image in the viewer
 function showImage(index) {
-    viewerImage.src = images[index];
-    currentIndex = index;
-    document.querySelector('.image-viewer').style.display = 'flex';
+    if (images[index]) {
+        viewerImage.src = images[index];
+        currentIndex = index;
+        document.querySelector('.image-viewer').style.display = 'flex';
+    } else {
+        console.error("Image at index " + index + " not found.");
+    }
 }
 
 // Close the image viewer
