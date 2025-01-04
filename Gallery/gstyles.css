@@ -11,25 +11,32 @@ body {
 
 .image-viewer {
     position: relative;
-    display: flex;
+    display: none; /* Initially hidden */
     justify-content: center;
     align-items: center;
     flex-direction: column;
     background-color: rgba(0, 0, 0, 0.8);
     width: 80%;
     height: 80%;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
 
 #viewerImage {
     max-width: 100%;
     max-height: 100%;
     margin-bottom: 20px;
+    border-radius: 10px;
 }
 
 #imageInput {
-    position: absolute;
-    top: 10px;
-    right: 10px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #007bff;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
 }
 
 .close {
