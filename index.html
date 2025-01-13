@@ -8,19 +8,20 @@
 </head>
 <body>
     <div class="container">
-        <nav class="menu-bar">
+        <nav class="menu-bar sidebar">
             <ul id="list-menu">
                 <!-- List items will be dynamically added here -->
             </ul>
         </nav>
-        <ul id="todo-list"></ul>
-        <form id="todo-form">
-            <input type="text" id="todo-input" placeholder="Add a new task..." required>
-            <button type="submit">Add Task</button>
-        </form>
-        <button id="add-list-button">Add List</button>
+        <div class="content">
+            <ul id="todo-list"></ul>
+            <form id="todo-form">
+                <input type="text" id="todo-input" placeholder="Add a new task..." required>
+                <button type="submit">Add Task</button>
+            </form>
+            <button id="add-list-button">Add List</button>
+        </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
