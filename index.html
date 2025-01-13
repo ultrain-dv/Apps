@@ -3,27 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ultrain To-Do</title>
+    <title>To-Do App</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="app-container">
-        <h1>To-Do Lists</h1>
-        
-        <!-- List Selector -->
-        <div class="list-selector">
-            <select id="listSelector">
-                <option value="">-- Select a List --</option>
-            </select>
-            <button id="createNewListButton">Create New List</button>
-        </div>
-        
-        <div class="input-container">
-            <input type="text" id="taskInput" placeholder="Enter a new task">
-            <button id="addTaskButton">Add Task</button>
-        </div>
-        
-        <ul id="taskList"></ul>
+    <div class="container">
+        <nav class="menu-bar">
+            <ul id="list-menu">
+                <!-- List items will be dynamically added here -->
+            </ul>
+        </nav>
+        <ul id="todo-list"></ul>
+        <form id="todo-form">
+            <input type="text" id="todo-input" placeholder="Add a new task..." required>
+            <button type="submit">Add Task</button>
+        </form>
+        <button id="add-list-button">Add List</button>
     </div>
 
     <script src="script.js"></script>
